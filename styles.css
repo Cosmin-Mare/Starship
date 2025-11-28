@@ -1,70 +1,374 @@
-body {
-    background-color: #000921;
-    font-family: 'Sour Gummy', sans-serif;
-    color: #bacdff;
-}
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
-.title-container {
-    width: 100%;
-    height: 80vh;
-    position: absolute;
-    top: -10%;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.location-containers {
-    position: absolute;
-    width: 100%;
-    top: 42%;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.locations {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #bacdff;
-}
-
-.location,
-.date,
-.separator {
-    margin: 0;
-}
-
-.separator {
-    line-height: 1;
-    display: inline-block;
-}
-
-.location-separator {
-    font-size: 2rem;
-    color: #bacdff;
-}
-
-.subtitle-container {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.subtitle {
-    font-size: 4rem;
+body{
+    font-family: 'Sour Gummy', cursive;
+    
     font-weight: 400;
+    margin: 0;
+
+}
+
+html {
+    background: linear-gradient(
+    0deg,
+    #2e65f6 0%,
+    #1c37c3 60%,
+    #000048 65%,
+    #000016 90%
+    );
+    background-repeat: no-repeat;
+
+    overflow-x: hidden;
+    min-height: 1100vh; /* Ensure enough height for scrolling */
+}
+
+#logo-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0; /* Behind other content */
+}
+
+.full-width-image-bg {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 0; /* Behind other content */
+}
+
+#ce-este-starship-section {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    z-index: 0; /* Behind other content */
+}
+
+#ce-este-starship-section-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 0; /* Behind other content */
+}
+
+#call-to-action-section {
+    position: absolute;
+    top: 68vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Above the background image */
+    width: 60%;
+    background: #c7d6fc;
+    border-radius: 50px;
+    max-height: 25vh;
+    overflow: hidden;
+  
+    /* outer border */
+    border: 8px solid #d7e2ff;
+  
+    /* inner border */
+    box-shadow: inset 0 0 0 8px #011a5e;
+  
+    padding: 40px;              /* so content doesn't touch the borders */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+#call-to-action-section h1 {
+    text-align: center;
+    margin: 0 0 .3em 0;
+    font-size: 3em;
+    font-weight: 400;
+    color: #011a5e;
+}
+
+.call-to-action-button {
+    background-color: #011a5e;
+    color: white;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    font-size: 2rem;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.call-to-action-button:hover {
+    transform: scale(1.05);
+}
+
+#moon-image {
+    position: absolute;
+    top: 30%;
+    right: -3%;
+    width: 30%;
+    z-index: 1; /* Above the background image */;
+}
+
+#ce-este-starship-section-image {
+    width: 85%;
+    transform: translateX(7.5%) translateY(-15%);
+}
+
+#ce-este-starship-section h1 {
+    text-align: center;
+    margin: 0 0 .3em 0;
+    font-size: 5em;
+    font-weight: 600;
+    color: #9eb7fb;
+}
+
+#text-bubble {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 55%;
+    z-index: 1; /* Above the background image */;
+}
+
+#text-bubble-text {
+    position: absolute;
+    top: 33.5%;
+    left: 28%;
+    width: 40%;
+    z-index: 1; /* Above the background image */;
+    font-size: 2.8em;
+    font-weight: 400;
+    color: #011a5e;
+}
+
+
+#text-bubble-text p {
+    margin: 0;
+    padding: 0;
+}
+
+#astronaut-image {
+    position: absolute;
+    top: 58%;
+    left: 3%;
+    z-index: 1; /* Above the background image */;
+}
+
+#stars-between-sections {
+    position: absolute;
+    top: 167%;
+    left: 5%;
+    width: 90%;
+    z-index: 1; /* Above the background image */;
+}
+
+#satellite-image {
+    position: absolute;
+    top: 190%;
+    right: 2%;
+    width: 15%;
+    z-index: 1; /* Above the background image */;
+}
+
+#stars-planet-section {
+    position: absolute;
+    top: 238%;
+    left: 10%;
+    width: 80%;
+    z-index: 1; /* Above the background image */;
+}
+
+#planet-section {
+    position: absolute;
+    top: 202%;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Above the background image */;
+}
+
+#planet-section h1 {
+    text-align: center;
+    margin: 0 0 .3em 0;
+    font-size: 5em;
+    font-weight: 600;
+    color: #9eb7fb;
+}
+
+#cluj-napoca-mars {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    width: 60%;
+    z-index: 1; /* Above the background image */;
+}
+
+#dej-venus {
+    position: absolute;
+    top: 400%;
+    right: 0%;
+    width: 40%;
+    z-index: 1; /* Above the background image */;
+}
+
+#beclean-neptune {
+    position: absolute;
+    top: 650%;
+    left: 13%;
+    width: 40%;
+}
+
+#wind {
+    position: absolute;
+    top: 450%;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Above the background image */;
+}
+
+#intrebari-generale-cloud {
+    position: absolute;
+    top: 380%;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Above the background image */;
+}
+
+#intrebari-generale-section h1{
+    position: absolute;
+    top: 400%;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Above the background image */;
+    font-size: 6em;
+    font-weight: 600;
+    color: #aec6ff;
+    text-align: center;
+    text-shadow: 
+        -4px -4px 0 #182e68,
+        4px -4px 0 #182e68,
+        -4px 4px 0 #182e68,
+        4px 4px 0 #182e68,
+        -4px 0 0 #182e68,
+        4px 0 0 #182e68,
+        0 -4px 0 #182e68,
+        0 4px 0 #182e68,
+        -3px -4px 0 #182e68,
+        3px -4px 0 #182e68,
+        -4px -3px 0 #182e68,
+        4px -3px 0 #182e68,
+        -3px 4px 0 #182e68,
+        3px 4px 0 #182e68,
+        -4px 3px 0 #182e68,
+        4px 3px 0 #182e68,
+        -3px 0 0 #182e68,
+        3px 0 0 #182e68,
+        0 -3px 0 #182e68,
+        0 3px 0 #182e68;
+    z-index: 3
+
+}
+
+#small-clouds-container {
+    position: absolute;
+    top: 460%;
+    left: 0;
+    width: 50%;
+    z-index: 1; /* Above the background image */;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 70vh;
+}
+
+.small-cloud-container {
+    position: relative;
+    width: 100%;
+    
+    z-index: 1; /* Above the background image */;
+}
+
+.small-cloud-title {
+    position: absolute;
+    top: 15vh;
+    left: 5vw;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #011a5e;
+    z-index: 1;
+    text-align: center;
+    width: 80%;
+}
+
+.small-cloud-text {
+    position: absolute;
+    width: 80%;
+    top: 33vh;
+    left: 5vw;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #011a5e;
+    z-index: 1;
+    text-align: center;
+}
+
+.small-cloud{
+    position: absolute;
+    width: 100%;
+}
+
+#ce-trebuie-sa-aduc-cloud .small-cloud-text {
+    top: 27vh;
+}
+
+#are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-text {
+    font-size: 1.9rem;
+    top: 31vh;
+}
+
+#are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-title {
+    font-size: 2.5rem;
+    top: 17vh;
+}
+
+#mai-am-si-alte-intrebari-cloud .small-cloud-text {
+    top: 26vh;
+}
+
+#small-clouds-container-right {
+    position: absolute;
+    top: 500%;
+    right: 0;
+    width: 50%;
+    z-index: 1; /* Above the background image */;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 70vh;
+}
+
+#cat-costa-cloud .small-cloud-text {
+    top: 24vh;
+}
+
+#cat-costa-cloud .small-cloud-title {
+    top: 10vh;
+}
+
+#ce-evenimente-ati-mai-organizat-cloud .small-cloud-text {
+    font-size: 1.9rem;
+    top: 28vh;
+}
+
+#ce-evenimente-ati-mai-organizat-cloud .small-cloud-title {
+    font-size: 2.5rem;
+    top: 11vh;
+}
+
+#ce-pot-crea-la-starship-cloud .small-cloud-text {
+    top: 32vh;
+}
+
+#ce-pot-crea-la-starship-cloud .small-cloud-title {
+    top: 20vh;
 }
