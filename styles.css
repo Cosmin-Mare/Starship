@@ -56,8 +56,7 @@ html {
 #call-to-action-section {
     position: absolute;
     top: 35vw;
-    left: 48%;
-    transform: translateX(-50%);
+    left: 20vw;
     z-index: 1; /* Above the background image */
     width: 60vw;
     background: #c7d6fc;
@@ -371,6 +370,7 @@ html {
     #call-to-action-section {
         width: 80vw;
         top: 39vw;
+        left: 10vw;
     }
 
     #ce-este-starship-section {
@@ -409,6 +409,7 @@ html {
     #call-to-action-section {
         width: 90vw;
         top: 47vw;
+        left: 5vw;
     }
 
     #ce-este-starship-section {
@@ -431,5 +432,206 @@ html {
     }
     #planet-section {
         top: 110vw;
+    }
+}
+
+@media (max-width: 700px) {
+    #displacement-container {
+        position: absolute;
+        top: 40vw;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    #displacement-container2 {
+        position: absolute;
+        top: 40vw;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    html {
+        background-image: url('images/Background-mobile.png');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: top center;
+        background-color: transparent;
+    }
+
+    #logo {
+        top: 10vw;
+    }
+
+    #call-to-action-section {
+        top: 60vw;
+        left: 10vw;
+        width: 80vw;
+        max-height: 24vw;
+    }
+
+    #call-to-action-section h1 {
+        font-size: 5.5vw;
+    }
+
+    .call-to-action-button {
+        font-size: 5vw;
+    }
+
+    #ce-este-starship-section {
+        top: 105vw;
+    }
+
+    #moon-image {
+        top: 3vw;
+        width: 20vw;
+    }
+
+    #text-bubble-text {
+        top: 18vw;
+        font-size: 4vw;
+        left: 22vw;
+        width: 60vw;
+    }
+
+    #text-bubble{
+        top: 16vw;
+        left: 12vw;
+        width: 75vw;
+    }
+
+    #astronaut-image {
+        top: 35vw;
+        width: 20vw;
+        left: -3vw; 
+    }
+
+    #planet-section {
+        top: 160vw;
+    }
+
+    #satellite-image {
+        top: 145vw;
+        width: 14vw;
+    }
+
+    #cluj-napoca-mars {
+        top: 5vw;
+        width: 80vw;
+    }
+
+    #dej-venus {
+        top: 40vw;
+        width: 60vw;
+    }
+    
+    #beclean-neptune {
+        top: 70vw;
+        width: 70vw;
+    }
+
+    #intrebari-generale-cloud {
+        top: 300vw;
+    }
+
+    #small-clouds-container {
+        top: 340vw;
+        width: 80vw;
+        gap: 100vw
+    }
+
+    #small-clouds-container-right {
+        top: 390vw;
+        width: 80vw;
+        gap: 100vw;
+    }
+
+    .small-cloud-title {
+        font-size: 5vw;
+        left: 8vw;
+        top: 12vw;
+    }
+
+    .small-cloud-text {
+        font-size: 4.5vw;
+        top: 26vw;
+        left: 7vw;
+    }
+
+    #cat-costa-cloud .small-cloud-title {
+        top: 10vw;
+    }
+
+    #cat-costa-cloud .small-cloud-text {
+        top: 18vw;
+    }
+
+    #ce-trebuie-sa-aduc-cloud .small-cloud-title {
+        top: 10vw;
+    }
+
+    #ce-trebuie-sa-aduc-cloud .small-cloud-text {
+        top: 18vw;
+    }
+
+    #ce-evenimente-ati-mai-organizat-cloud .small-cloud-title {
+        top: 10vw;
+        font-size: 4.5vw;
+    }
+
+    #ce-evenimente-ati-mai-organizat-cloud .small-cloud-text {
+        top: 24vw;
+        font-size: 3vw;
+    }
+
+    #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-title {
+        top: 12vw;
+        left: 7vw;
+        font-size: 4vw;
+    }
+
+    #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-text {
+        top: 24vw;
+        font-size: 3.2vw;
+    }
+
+    #ce-pot-crea-la-starship-cloud .small-cloud-title {
+        top: 16vw;
+    }
+
+    #ce-pot-crea-la-starship-cloud .small-cloud-text {
+        top: 26vw;
+    }
+    
+    #mai-am-si-alte-intrebari-cloud .small-cloud-title {
+        top: 13vw;
+        font-size: 5vw;
+    }
+
+    #mai-am-si-alte-intrebari-cloud .small-cloud-text {
+        top: 22vw;
+        font-size: 4vw;
+    }
+    
+}
+
+@media (max-width: 500px) {
+    #call-to-action-section {
+        width: 90vw;
+        left: 5vw;
+    }   
+
+    #cluj-napoca-mars {
+        top: 0vw;
+        width: 80vw;
+    }
+
+    #dej-venus {
+        top: 50vw;
+    }
+
+    #beclean-neptune {
+        top: 85vw;
     }
 }
