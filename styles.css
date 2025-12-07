@@ -1,31 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
 body{
-    font-family: 'Sour Gummy', cursive;
+    font-family: 'Sour Gummy', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     
     font-weight: 400;
     margin: 0;
-
+    padding: 0;
     overflow-x: hidden;
+    height: 100%;
+}
 
+#astronaut-image {
+    position: absolute;
+    right: 18vw;
+    top: 0vw;
+    width: 20vw;
+    z-index: 100; /* Above the background image */;
+    will-change: left, right, top, transform; /* Optimize for animations */
+    transform-origin: center center; /* Rotate around center */
+    transition: transform 0.1s ease-out; /* Smooth rotation */
 }
 
 html {
-    /* background: linear-gradient(
-    0deg,
-    #2e65f6 0%,
-    #1c37c3 60%,
-    #000048 65%,
-    #000016 90%
-    ); */
-
-    background-image: url('images/Background.png');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: top center;
+    background-color: #4b87f7;
+    background-image: 
+        url('images/Background-no-gradient.png'),
+        linear-gradient(
+            180deg,
+            #000016 0px,
+            #000016 200vw,
+            #000048 300vw,
+            #1c37c3 360vw,
+            #4b87f7 540vw,
+            #4b87f7 3000vw
+        );
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% auto, 100% 3000vw;
+    background-position: top center, top left;
+    position: relative;
 
     overflow-x: hidden;
-    min-height: 1100vh; /* Ensure enough height for scrolling */
+    min-height: 1000vh; /* Ensure footer is visible - footer ends around 690vw */
 }
 
 #logo {
@@ -34,24 +49,6 @@ html {
     left: 15vw;
     width: 70vw;
 }
-
-#logo-section {
-    position: absolute;
-    top: calc(100*100vw/1510);;
-    left: 0;
-    width: 100vw;
-    z-index: 0; /* Behind other content */
-    overflow-x: hidden;
-    scale: calc(1/(100vw/1510px))
-}
-
-.full-width-image-bg {
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 0; /* Behind other content */
-}
-
 
 #call-to-action-section {
     position: absolute;
@@ -87,15 +84,73 @@ html {
 }
 
 .call-to-action-button {
-    background-color: #011a5e;
+    background: linear-gradient(135deg, #011a5e 0%, #023a8e 100%);
     color: white;
     border-radius: 50px;
-    padding: 1vh 2vw;
+    padding: 4.5vh 4vw;
     text-align: center;
     cursor: pointer;
     font-size: 3vw;
     border: none;
-    transition: transform 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(1, 26, 94, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    margin-top: 1vh;
+    line-height: 1;
+}
+
+.call-to-action-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.1) 30%,
+        rgba(255, 255, 255, 0.5) 45%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0.5) 55%,
+        rgba(255, 255, 255, 0.1) 70%,
+        transparent 75%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s ease-in-out infinite;
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.call-to-action-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        -45deg,
+        transparent 20%,
+        rgba(173, 216, 255, 0.2) 35%,
+        rgba(173, 216, 255, 0.4) 50%,
+        rgba(173, 216, 255, 0.2) 65%,
+        transparent 80%
+    );
+    transform: rotate(-45deg);
+    animation: shineReverse 4s ease-in-out infinite;
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
 }
 
 #ce-este-starship-section {
@@ -115,7 +170,26 @@ html {
 }
 
 .call-to-action-button:hover {
-    transform: scale(1.05);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 12px 24px rgba(1, 26, 94, 0.4),
+                0 8px 16px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(1, 26, 94, 0.3);
+    background: linear-gradient(135deg, #023a8e 0%, #0350b8 100%);
+}
+
+.call-to-action-button:hover::before {
+    animation: shine 1.5s ease-in-out infinite;
+}
+
+.call-to-action-button:hover::after {
+    animation: shineReverse 2s ease-in-out infinite;
+}
+
+.call-to-action-button:active,
+.call-to-action-button.pressed {
+    transform: scale(0.95) translateY(0);
+    box-shadow: 0 4px 8px rgba(1, 26, 94, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #moon-image {
@@ -164,22 +238,6 @@ html {
     padding: 0;
 }
 
-#astronaut-image {
-    position: absolute;
-    top: 20vw;
-    left: 3%;
-    width: 23vw;
-    z-index: 1; /* Above the background image */;
-}
-
-#stars-between-sections {
-    position: absolute;
-    top: 167%;
-    left: 5%;
-    width: 90%;
-    z-index: 1; /* Above the background image */;
-}
-
 #satellite-image {
     position: absolute;
     top: 100vw;
@@ -194,17 +252,10 @@ html {
     }
 }
 
-#stars-planet-section {
-    position: absolute;
-    top: 238%;
-    left: 10%;
-    width: 80%;
-    z-index: 1; /* Above the background image */;
-}
 
 #planet-section {
     position: absolute;
-    top: 98vw;
+    top: 94vw;
     left: 0;
     width: 100%;
     z-index: 1; /* Above the background image */;
@@ -218,36 +269,203 @@ html {
     color: #9eb7fb;
 }
 
-#cluj-napoca-mars {
+#mars {
     position: absolute;
-    top: 5vw;
-    left: 0vw;
+    top: 0;
+    left: 0;
+    width: 65vw;
+}
+
+#venus {
+    position: absolute;
+    top: 40vw;
+    right: 0;
     width: 60vw;
-    z-index: 1; /* Above the background image */;
 }
 
-#dej-venus {
+#neptune {
     position: absolute;
-    top: 20vw;
-    right: 0%;
-    width: 45vw;
-    z-index: 1; /* Above the background image */;
+    top: 75vw;
+    left: -5vw;
+    width: 65vw;
 }
 
-#beclean-neptune {
+#map {
     position: absolute;
-    top: 55vw;
+    top: 250vw;
     left: 5vw;
-    width: 50vw;
+    width: 90vw;
+    z-index: 1; /* Above the background image */;
 }
 
-#wind {
+#map-title{
     position: absolute;
-    top: 210vw;
+    top: 26vw;
+    left: 10%;
+    width: 80%;
+    font-size: 8vw;
+    text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1; /* Above the background image */;
+}
+
+#map-image {
+    width: 100%;
+}
+
+#time {
+    position: absolute;
+    top: 315vw;
     left: 0;
     width: 100%;
     z-index: 1; /* Above the background image */;
 }
+
+#time-title {
+    position: absolute;
+    top: 12vw;
+    left: 25vw;
+    width: 50vw;
+    z-index: 1; /* Above the background image */;
+}
+
+
+
+#clock1 {
+    position: absolute;
+    top: 10vw;
+    right: 0;
+    width: 20vw;
+    z-index: 1; /* Above the background image */;
+}
+
+#clock2 {
+    position: absolute;
+    top: 10vw;
+    left: 0;
+    width: 20vw;
+    z-index: 1; /* Above the background image */;
+}
+
+#program-button {
+    position: absolute;
+    top: 25vw;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#program-button > div {
+    background: linear-gradient(135deg, #e7e0c3 0%, #f0ead6 100%);
+    border-radius: 50px;
+    
+    /* outer border */
+    border: 8px solid #f5f0e0;
+    
+    /* inner border */
+    box-shadow: inset 0 0 0 8px #c8a500,
+                0 8px 16px rgba(200, 165, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#program-button > div::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s ease-in-out infinite;
+    opacity: 1;
+}
+
+#program-button:hover > div {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: inset 0 0 0 8px #c8a500,
+                0 12px 24px rgba(200, 165, 0, 0.4),
+                0 8px 16px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(200, 165, 0, 0.3);
+    border-color: #faf8f0;
+}
+
+#program-button:hover > div::before {
+    animation: shine 1.5s ease-in-out infinite;
+}
+
+#program-button:active > div,
+#program-button.pressed > div {
+    transform: scale(0.95) translateY(0);
+    box-shadow: inset 0 0 0 8px #c8a500,
+                0 4px 8px rgba(200, 165, 0, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+@keyframes shineReverse {
+    0% {
+        transform: translateX(100%) translateY(100%) rotate(-45deg);
+    }
+    100% {
+        transform: translateX(-100%) translateY(-100%) rotate(-45deg);
+    }
+}
+
+#program-button > div p {
+    margin: 0;
+    font-size: 5vw;
+    font-weight: 500;
+    color: #000000;
+    font-family: 'Sour Gummy', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+#program-button:hover > div p {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+
+
+#intrebari-generale-section {
+    position: absolute;
+    top: 170vw;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Above the background image */;
+}
+
 
 #intrebari-generale-cloud {
     position: absolute;
@@ -361,6 +579,47 @@ html {
     top: 10vw;
 }
 
+#sponsor-section {
+    position: absolute;
+    top: 570vw;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Above the background image */;
+}
+
+#sponsor-section h1 {
+    text-align: center;
+    margin: 0 0 .3em 0;
+    font-size: 6.5vw;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#sponsor-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sponsor-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12vw;
+}
+
+.sponsor-balloon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sponsor-balloon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 @media (max-width: 900px) {
     #logo{
         width: 80vw;
@@ -371,6 +630,7 @@ html {
         width: 80vw;
         top: 39vw;
         left: 10vw;
+        max-height: 18vw;
     }
 
     #ce-este-starship-section {
@@ -408,8 +668,9 @@ html {
 
     #call-to-action-section {
         width: 90vw;
-        top: 47vw;
+        top: 49vw;
         left: 5vw;
+        max-height: 18vw;
     }
 
     #ce-este-starship-section {
@@ -453,11 +714,22 @@ html {
         z-index: 1;
     }
     html {
-        background-image: url('images/Background-mobile.png');
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-position: top center;
-        background-color: transparent;
+        background-color: #4897ff;
+        background-image: 
+            url('images/Background-mobile-no-gradient.png'),
+            linear-gradient(
+                180deg,
+                #000016 0px,
+                #000016 380vw,
+                #000048 400vw,
+                #1c37c3 440vw,
+                #4897ff 540vw,
+                #4897ff 1200vw
+            );
+        background-repeat: no-repeat, no-repeat;
+        background-size: 100% auto, 100% 2000vw;
+        background-position: top center, top left;
+        min-height: 1400vh; /* Ensure footer is visible on mobile - footer ends around 830vw */
     }
 
     #logo {
@@ -477,6 +749,7 @@ html {
 
     .call-to-action-button {
         font-size: 5vw;
+        padding: 4.5vh 3vw;
     }
 
     #ce-este-starship-section {
@@ -501,12 +774,6 @@ html {
         width: 75vw;
     }
 
-    #astronaut-image {
-        top: 35vw;
-        width: 20vw;
-        left: -3vw; 
-    }
-
     #planet-section {
         top: 160vw;
     }
@@ -516,20 +783,6 @@ html {
         width: 14vw;
     }
 
-    #cluj-napoca-mars {
-        top: 5vw;
-        width: 80vw;
-    }
-
-    #dej-venus {
-        top: 40vw;
-        width: 60vw;
-    }
-    
-    #beclean-neptune {
-        top: 70vw;
-        width: 70vw;
-    }
 
     #intrebari-generale-cloud {
         top: 300vw;
@@ -613,10 +866,7 @@ html {
         top: 22vw;
         font-size: 4vw;
     }
-    
-}
 
-@media (max-width: 500px) {
     #displacement-container3 {
         position: absolute;
         top: 15vw;
@@ -625,14 +875,6 @@ html {
         height: 100%;
         z-index: 1;
     }
-
-    #astronaut-image {
-        top: 47vw;
-        width: 25vw;
-        left: -5vw;
-        transform: rotate(-30deg);
-    }
-
     #call-to-action-section {
         width: 90vw;
         left: 5vw;
@@ -644,6 +886,46 @@ html {
     box-shadow: inset 0 0 0 4px #011a5e;
 
     max-height: 35vw;  
+    }
+
+    #program-button > div {
+        background: linear-gradient(135deg, #e7e0c3 0%, #f0ead6 100%);
+        /* outer border */
+        border: 4px solid #f5f0e0;
+        
+        /* inner border */
+        box-shadow: inset 0 0 0 4px #c8a500,
+                    0 6px 12px rgba(200, 165, 0, 0.3),
+                    0 3px 6px rgba(0, 0, 0, 0.2);
+        
+        padding: 30px;
+    }
+
+    #program-button:hover > div {
+        transform: scale(1.06) translateY(-2px);
+        box-shadow: inset 0 0 0 4px #c8a500,
+                    0 10px 20px rgba(200, 165, 0, 0.4),
+                    0 6px 12px rgba(0, 0, 0, 0.3),
+                    0 0 15px rgba(200, 165, 0, 0.3);
+        border-color: #faf8f0;
+    }
+
+    #program-button:active > div,
+    #program-button.pressed > div {
+        transform: scale(0.95) translateY(0);
+        box-shadow: inset 0 0 0 4px #c8a500,
+                    0 3px 6px rgba(200, 165, 0, 0.2),
+                    0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    #program-button > div p {
+        font-size: 5vw;
+        color: #000000;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #program-button:hover > div p {
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     }   
 
     #call-to-action-section h1 {
@@ -652,7 +934,7 @@ html {
 
     .call-to-action-button {
         font-size: 6vw;
-        padding: 2vw 4vw;
+        padding: 5vw 5vw;
     }
 
     #text-bubble-text {
@@ -662,16 +944,474 @@ html {
         width: 70vw;
     }
 
-    #cluj-napoca-mars {
-        top: 0vw;
-        width: 80vw;
+
+    #sponsor-section {
+        top:700vw;
     }
 
-    #dej-venus {
-        top: 50vw;
+    #sponsor-grid {
+        flex-direction: column;
+        margin-top: 10vw;
     }
 
-    #beclean-neptune {
-        top: 85vw;
+    .sponsor-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 10vw;
+    }
+
+    .sponsor-balloon {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+    }
+
+    .sponsor-balloon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+/* Schedule Modal Styles */
+.schedule-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.schedule-modal-content {
+    background: linear-gradient(135deg, #c7d6fc 0%, #d7e2ff 100%);
+    border-radius: 50px;
+    padding: 0;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 8px #d7e2ff,
+                inset 0 0 0 8px #011a5e;
+    animation: slideUp 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-modal-inner {
+    padding: 50px;
+    padding-right: 40px;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: #011a5e #d7e2ff;
+}
+
+/* Webkit scrollbar styling (Chrome, Safari, Edge) */
+.schedule-modal-inner::-webkit-scrollbar {
+    width: 12px;
+}
+
+.schedule-modal-inner::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 15px 0;
+}
+
+.schedule-modal-inner::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #011a5e 0%, #1c37c3 100%);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.3s ease;
+    margin: 15px 0;
+}
+
+.schedule-modal-inner::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #1c37c3 0%, #011a5e 100%);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.schedule-close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #011a5e;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10001;
+}
+
+.schedule-close-button:hover {
+    background-color: rgba(1, 26, 94, 0.1);
+    transform: scale(1.1) rotate(90deg);
+}
+
+.schedule-title {
+    text-align: center;
+    font-size: 4vw;
+    font-weight: 600;
+    color: #011a5e;
+    margin: 0 0 40px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.schedule-day {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(1, 26, 94, 0.2),
+                inset 0 0 0 4px #011a5e;
+}
+
+.day-title {
+    font-size: 3vw;
+    font-weight: 600;
+    color: #011a5e;
+    margin: 0 0 25px 0;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.schedule-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border-left: 5px solid #011a5e;
+    transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(1, 26, 94, 0.2);
+}
+
+.schedule-time {
+    font-size: 1.8vw;
+    font-weight: 600;
+    color: #011a5e;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-event {
+    font-size: 1.6vw;
+    font-weight: 400;
+    color: #011a5e;
+    line-height: 1.4;
+}
+
+/* Mobile Responsive Styles for Modal */
+@media (max-width: 700px) {
+    .schedule-modal-content {
+        padding: 0;
+        max-width: 95vw;
+        max-height: 95vh;
+        border-radius: 30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+                    0 0 0 4px #d7e2ff,
+                    inset 0 0 0 4px #011a5e;
+    }
+
+    .schedule-modal-inner {
+        padding: 30px 20px;
+        padding-right: 15px;
+        max-height: 95vh;
+        scrollbar-width: thin;
+        scrollbar-color: #011a5e #d7e2ff;
+    }
+
+    .schedule-modal-inner::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .schedule-modal-inner::-webkit-scrollbar-track {
+        background: transparent;
+        margin: 10px 0;
+    }
+
+    .schedule-modal-inner::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #4b87f7 0%, #1c37c3 100%);
+        border-radius: 8px;
+        border: 1px solid transparent;
+        background-clip: padding-box;
+        margin: 10px 0;
+    }
+
+    .schedule-close-button {
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .schedule-title {
+        font-size: 6vw;
+        margin: 0 0 30px 0;
+    }
+
+    .schedule-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .schedule-day {
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 6px 12px rgba(1, 26, 94, 0.2),
+                    inset 0 0 0 3px #011a5e;
+    }
+
+    .day-title {
+        font-size: 5vw;
+        margin: 0 0 20px 0;
+    }
+
+    .schedule-item {
+        padding: 12px;
+        border-radius: 12px;
+        border-left-width: 4px;
+    }
+
+    .schedule-time {
+        font-size: 4vw;
+    }
+
+    .schedule-event {
+        font-size: 3.5vw;
+    }
+}
+
+/* Footer Styles */
+#main-footer {
+    position: absolute;
+    top: 700vw;
+    left: 0;
+    width: 100%;
+    padding: 60px 20px 60px;
+    background: #4b87f7;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-title {
+    font-size: 3.5vw;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 2.5vw;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.footer-email:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.email-icon {
+    font-size: 2.8vw;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.footer-divider {
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.5) 20%, 
+        rgba(255, 255, 255, 0.5) 80%, 
+        transparent 100%);
+    border-radius: 2px;
+    margin: 10px 0;
+}
+
+.footer-love {
+    font-size: 2.2vw;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 500;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    font-size: 1.3em;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.footer-emoji {
+    font-size: 2.5vw;
+    margin: 15px 0 0 0;
+    letter-spacing: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Mobile Footer Styles */
+@media (max-width: 700px) {
+    #main-footer {
+        top: 790vw;
+        padding: 40px 15px 40px;
+        background: #4897ff;
+        min-height: 40vw;
+    }
+
+    .footer-content {
+        gap: 25px;
+    }
+
+    .footer-title {
+        font-size: 5.5vw;
+        margin: 0 0 15px 0;
+    }
+
+    .footer-email {
+        font-size: 4vw;
+        padding: 12px 25px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        gap: 10px;
+    }
+
+    .footer-email:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .email-icon {
+        font-size: 4.5vw;
+    }
+
+    .footer-divider {
+        height: 3px;
+        width: 70%;
+    }
+
+    .footer-love {
+        font-size: 3.5vw;
+    }
+
+    .footer-emoji {
+        font-size: 4vw;
+        letter-spacing: 10px;
+        margin: 12px 0 0 0;
     }
 }
