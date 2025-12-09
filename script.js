@@ -67,29 +67,99 @@ document.addEventListener('DOMContentLoaded', function() {
     // Astronaut image scroll animation
     const astronautImage = document.querySelector('#astronaut-image');
     if (astronautImage) {
-        // Configuration: Define scroll positions (in viewport height units) and corresponding positions
-        // Format: { scrollPosition: value in vh, left: value in vw or %, top: value in vw, vh, or px }
-        // Always use 'left' for horizontal positioning (converted from previous right values)
-        // 'top' is optional - if not specified, it will follow scroll position
-        const astronautKeyframes = [
-            { scrollPosition: 0, left: '61vw', top: '0vw' },      // Start position (was right: 18vw)
-            { scrollPosition: 50, left: '0vw', top: '60vw' },     // Move left a bit (was right: 10vw)
-            { scrollPosition: 100, left: '5vw', top: '74vw' },     // Move to left side
-            { scrollPosition: 150, left: '5vw', top: '74vw' },    // Move right a bit
-            { scrollPosition: 200, left: '70vw', top: '120vw' },   // Move back to right (was right: 10vw)
-            { scrollPosition: 280, left: '20vw', top: '155vw' },    // Move to left again
-            { scrollPosition: 360, left: '70vw', top: '200vw' },    // Move to far right (was right: 5vw)
-            { scrollPosition: 550, left: '10vw', top: '300vw' },   // Final position on left
-            { scrollPosition: 600, left: '60vw', top: '300vw' },   // Final position on left
-            { scrollPosition: 650, left: '80vw', top: '350vw' },   // Final position on left
-            { scrollPosition: 850, left: '20vw', top: '438vw' },
-            { scrollPosition: 880, left: '50vw', top: '460vw' },
-            { scrollPosition: 900, left: '30vw', top: '480vw' },
-            { scrollPosition: 920, left: '50vw', top: '500vw' },
-            { scrollPosition: 950, left: '30vw', top: '520vw' },
-            { scrollPosition: 980, left: '50vw', top: '540vw' },
-            {scrollPosition: 1080, left: '120vw', top: '560vw' },
-        ];
+        // Keyframes per breakpoint to keep path on screen
+        function buildAstronautKeyframes(windowWidth) {
+            // Base/original path (desktop)
+            const base = [
+                { scrollPosition: 0, left: '61vw', top: '0vw' },
+                { scrollPosition: 50, left: '0vw', top: '60vw' },
+                { scrollPosition: 100, left: '5vw', top: '74vw' },
+                { scrollPosition: 150, left: '5vw', top: '74vw' },
+                { scrollPosition: 200, left: '70vw', top: '120vw' },
+                { scrollPosition: 280, left: '20vw', top: '155vw' },
+                { scrollPosition: 360, left: '70vw', top: '200vw' },
+                { scrollPosition: 550, left: '10vw', top: '300vw' },
+                { scrollPosition: 600, left: '60vw', top: '300vw' },
+                { scrollPosition: 650, left: '80vw', top: '350vw' },
+                { scrollPosition: 850, left: '20vw', top: '438vw' },
+                { scrollPosition: 880, left: '50vw', top: '460vw' },
+                { scrollPosition: 900, left: '30vw', top: '480vw' },
+                { scrollPosition: 920, left: '50vw', top: '500vw' },
+                { scrollPosition: 950, left: '30vw', top: '520vw' },
+                { scrollPosition: 980, left: '50vw', top: '540vw' },
+                { scrollPosition: 1080, left: '120vw', top: '560vw' },
+            ];
+
+            // 900px and below: compress vertical range and lateral extremes a bit
+            const upTo900 = [
+                { scrollPosition: 0, left: '61vw', top: '0vw' },
+                { scrollPosition: 50, left: '4vw', top: '55vw' },
+                { scrollPosition: 100, left: '6vw', top: '72vw' },
+                { scrollPosition: 150, left: '6vw', top: '78vw' },
+                { scrollPosition: 200, left: '68vw', top: '115vw' },
+                { scrollPosition: 280, left: '22vw', top: '150vw' },
+                { scrollPosition: 360, left: '68vw', top: '190vw' },
+                { scrollPosition: 550, left: '14vw', top: '260vw' },
+                { scrollPosition: 600, left: '56vw', top: '270vw' },
+                { scrollPosition: 650, left: '76vw', top: '310vw' },
+                { scrollPosition: 850, left: '24vw', top: '360vw' },
+                { scrollPosition: 880, left: '50vw', top: '380vw' },
+                { scrollPosition: 900, left: '32vw', top: '395vw' },
+                { scrollPosition: 920, left: '50vw', top: '410vw' },
+                { scrollPosition: 950, left: '32vw', top: '425vw' },
+                { scrollPosition: 980, left: '50vw', top: '440vw' },
+                { scrollPosition: 1080, left: '100vw', top: '450vw' },
+            ];
+
+            // 830px and below: further compress vertical span and rightmost travel
+            const upTo830 = [
+                { scrollPosition: 0, left: '58vw', top: '0vw' },
+                { scrollPosition: 50, left: '6vw', top: '52vw' },
+                { scrollPosition: 100, left: '8vw', top: '68vw' },
+                { scrollPosition: 150, left: '8vw', top: '74vw' },
+                { scrollPosition: 200, left: '64vw', top: '105vw' },
+                { scrollPosition: 280, left: '22vw', top: '140vw' },
+                { scrollPosition: 360, left: '64vw', top: '180vw' },
+                { scrollPosition: 550, left: '16vw', top: '240vw' },
+                { scrollPosition: 600, left: '52vw', top: '255vw' },
+                { scrollPosition: 650, left: '72vw', top: '290vw' },
+                { scrollPosition: 850, left: '24vw', top: '330vw' },
+                { scrollPosition: 880, left: '48vw', top: '350vw' },
+                { scrollPosition: 900, left: '32vw', top: '365vw' },
+                { scrollPosition: 920, left: '48vw', top: '380vw' },
+                { scrollPosition: 950, left: '32vw', top: '395vw' },
+                { scrollPosition: 980, left: '48vw', top: '410vw' },
+                { scrollPosition: 1080, left: '92vw', top: '420vw' },
+            ];
+
+            // 780px and below: keep path tighter to avoid leaving view
+            const upTo780 = [
+                { scrollPosition: 0, left: '56vw', top: '0vw' },
+                { scrollPosition: 50, left: '8vw', top: '48vw' },
+                { scrollPosition: 100, left: '10vw', top: '62vw' },
+                { scrollPosition: 150, left: '10vw', top: '68vw' },
+                { scrollPosition: 200, left: '60vw', top: '95vw' },
+                { scrollPosition: 280, left: '24vw', top: '125vw' },
+                { scrollPosition: 360, left: '60vw', top: '165vw' },
+                { scrollPosition: 550, left: '18vw', top: '220vw' },
+                { scrollPosition: 600, left: '50vw', top: '235vw' },
+                { scrollPosition: 650, left: '70vw', top: '265vw' },
+                { scrollPosition: 850, left: '26vw', top: '305vw' },
+                { scrollPosition: 880, left: '46vw', top: '320vw' },
+                { scrollPosition: 900, left: '34vw', top: '332vw' },
+                { scrollPosition: 920, left: '46vw', top: '344vw' },
+                { scrollPosition: 950, left: '34vw', top: '356vw' },
+                { scrollPosition: 980, left: '46vw', top: '368vw' },
+                { scrollPosition: 1080, left: '84vw', top: '376vw' },
+            ];
+
+            if (windowWidth <= 780) return upTo780;
+            if (windowWidth <= 830) return upTo830;
+            if (windowWidth <= 900) return upTo900;
+            return base;
+        }
+
+        let astronautKeyframes = buildAstronautKeyframes(window.innerWidth);
 
         // Helper function to convert any position value to pixels from left edge
         function getPositionFromLeft(pos, isRight, windowWidth) {
@@ -323,6 +393,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         window.addEventListener('scroll', onScroll);
+
+        // Rebuild keyframes on resize to match breakpoints
+        let resizeTimeout = null;
+        window.addEventListener('resize', () => {
+            if (resizeTimeout) {
+                clearTimeout(resizeTimeout);
+            }
+            resizeTimeout = setTimeout(() => {
+                astronautKeyframes = buildAstronautKeyframes(window.innerWidth);
+                updateAstronautPosition();
+            }, 100);
+        });
+
         updateAstronautPosition(); // Initial position
     }
 });

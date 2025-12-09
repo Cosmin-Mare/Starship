@@ -21,6 +21,27 @@ body{
     transition: transform 0.1s ease-out; /* Smooth rotation */
 }
 
+@media (max-width: 900px) {
+    /* Keep scroll path visible on medium screens */
+    #astronaut-image {
+        width: 22vw;
+    }
+}
+
+@media (max-width: 830px) {
+    /* Slightly larger on narrower viewports to balance path coverage */
+    #astronaut-image {
+        width: 26vw;
+    }
+}
+
+@media (max-width: 780px) {
+    /* Prevent overflow while keeping movement readable */
+    #astronaut-image {
+        width: 30vw;
+    }
+}
+
 html {
     background-color: #4b87f7;
     background-image: 
