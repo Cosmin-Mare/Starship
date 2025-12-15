@@ -717,15 +717,18 @@ html {
     }
 }
 
+/* Mobile Layout - Rebuilt Clean */
 @media (max-width: 700px) {
+    /* Container positioning */
     #displacement-container {
         position: absolute;
-        top: 40vw;
+        top: 10vw;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: 1;
     }
+    
     #displacement-container2 {
         position: absolute;
         top: 40vw;
@@ -734,6 +737,17 @@ html {
         height: 100%;
         z-index: 1;
     }
+    
+    #displacement-container3 {
+        position: absolute;
+        top: 15vw;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    /* Background and page setup */
     html {
         background-color: #4897ff;
         background-image: 
@@ -745,36 +759,46 @@ html {
                 #000048 400vw,
                 #1c37c3 440vw,
                 #4897ff 540vw,
-                #4897ff 1200vw
+                #4897ff 600vw
             );
         background-repeat: no-repeat, no-repeat;
-        background-size: 100% auto, 100% 2000vw;
+        background-size: 100% 650vw, 100% 650vw;
         background-position: top center, top left;
-        min-height: 1400vh; /* Ensure footer is visible on mobile - footer ends around 830vw */
+        min-height: 650vw;
     }
 
+    /* Astronaut */
+    #astronaut-image {
+        width: 35vw;
+    }
+
+    /* Logo */
     #logo {
         top: 10vw;
     }
 
+    /* Call to Action */
     #call-to-action-section {
-        top: 60vw;
-        left: 10vw;
-        width: 80vw;
-        max-height: 24vw;
+        top: 50vw;
+        left: 5vw;
+        width: 90vw;
+        max-height: 30vw;
+        border: 4px solid #d7e2ff;
+        box-shadow: inset 0 0 0 4px #011a5e;
     }
 
     #call-to-action-section h1 {
-        font-size: 5.5vw;
+        font-size: 6vw;
     }
 
     .call-to-action-button {
-        font-size: 5vw;
-        padding: 4.5vh 3vw;
+        font-size: 5.5vw;
+        padding: 4vw 4vw;
     }
 
+    /* Ce este Starship section */
     #ce-este-starship-section {
-        top: 105vw;
+        top: 90vw;
     }
 
     #moon-image {
@@ -782,144 +806,53 @@ html {
         width: 20vw;
     }
 
-    #text-bubble-text {
-        top: 18vw;
-        font-size: 4vw;
-        left: 22vw;
-        width: 60vw;
-    }
-
-    #text-bubble{
+    #text-bubble {
         top: 16vw;
         left: 12vw;
         width: 75vw;
     }
 
+    #text-bubble-text {
+        top: 18vw;
+        left: 16vw;
+        font-size: 4vw;
+        width: 65vw;
+    }
+
+    /* Planet section */
     #planet-section {
-        top: 160vw;
+        top: 145vw;
     }
 
     #satellite-image {
-        top: 145vw;
+        top: 130vw;
         width: 14vw;
     }
 
-
-    #intrebari-generale-cloud {
+    /* Map */
+    #map {
         top: 300vw;
-    }
-
-    #small-clouds-container {
-        top: 340vw;
+        left: 10vw;
         width: 80vw;
-        gap: 100vw
     }
 
-    #small-clouds-container-right {
-        top: 390vw;
-        width: 80vw;
-        gap: 100vw;
+    #map-title {
+        font-size: 6vw;
+        top: 20vw;
     }
 
-    .small-cloud-title {
-        font-size: 5vw;
-        left: 8vw;
-        top: 12vw;
-    }
-
-    .small-cloud-text {
-        font-size: 4.5vw;
-        top: 26vw;
-        left: 7vw;
-    }
-
-    #cat-costa-cloud .small-cloud-title {
-        top: 10vw;
-    }
-
-    #cat-costa-cloud .small-cloud-text {
-        top: 18vw;
-    }
-
-    #ce-trebuie-sa-aduc-cloud .small-cloud-title {
-        top: 10vw;
-    }
-
-    #ce-trebuie-sa-aduc-cloud .small-cloud-text {
-        top: 18vw;
-    }
-
-    #ce-evenimente-ati-mai-organizat-cloud .small-cloud-title {
-        top: 10vw;
-        font-size: 4.5vw;
-    }
-
-    #ce-evenimente-ati-mai-organizat-cloud .small-cloud-text {
-        top: 24vw;
-        font-size: 3vw;
-    }
-
-    #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-title {
-        top: 12vw;
-        left: 7vw;
-        font-size: 4vw;
-    }
-
-    #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-text {
-        top: 24vw;
-        font-size: 3.2vw;
-    }
-
-    #ce-pot-crea-la-starship-cloud .small-cloud-title {
-        top: 16vw;
-    }
-
-    #ce-pot-crea-la-starship-cloud .small-cloud-text {
-        top: 26vw;
-    }
-    
-    #mai-am-si-alte-intrebari-cloud .small-cloud-title {
-        top: 13vw;
-        font-size: 5vw;
-    }
-
-    #mai-am-si-alte-intrebari-cloud .small-cloud-text {
-        top: 22vw;
-        font-size: 4vw;
-    }
-
-    #displacement-container3 {
-        position: absolute;
-        top: 15vw;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-    #call-to-action-section {
-        width: 90vw;
-        left: 5vw;
-
-         /* outer border */
-    border: 4px solid #d7e2ff;
-        
-    /* inner border */
-    box-shadow: inset 0 0 0 4px #011a5e;
-
-    max-height: 35vw;  
+    /* Time */
+    #time {
+        top: 350vw;
     }
 
     #program-button > div {
         background: linear-gradient(135deg, #e7e0c3 0%, #f0ead6 100%);
-        /* outer border */
         border: 4px solid #f5f0e0;
-        
-        /* inner border */
         box-shadow: inset 0 0 0 4px #c8a500,
                     0 6px 12px rgba(200, 165, 0, 0.3),
                     0 3px 6px rgba(0, 0, 0, 0.2);
-        
-        padding: 30px;
+        padding: 25px;
     }
 
     #program-button:hover > div {
@@ -940,58 +873,135 @@ html {
     }
 
     #program-button > div p {
-        font-size: 5vw;
+        font-size: 4.5vw;
         color: #000000;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     #program-button:hover > div p {
         text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    }   
-
-    #call-to-action-section h1 {
-        font-size: 6.5vw;
     }
 
-    .call-to-action-button {
-        font-size: 6vw;
-        padding: 5vw 5vw;
-    }
-
-    #text-bubble-text {
-        top: 18vw;
-        left: 16vw;
-        font-size: 5vw;
-        width: 70vw;
-    }
-
-
-    #sponsor-section {
-        top:700vw;
-    }
-
-    #sponsor-grid {
+    /* FAQ Clouds - Stacked vertically as single element */
+    /* Make the FAQ section a flex container on mobile */
+    #intrebari-generale-section {
+        display: flex;
         flex-direction: column;
-        margin-top: 10vw;
-    }
-
-    .sponsor-row {
-        flex-direction: column;
+        top: 400vw;
         align-items: center;
-        gap: 10vw;
     }
 
-    .sponsor-balloon {
-        width: 60%;
-        height: 60%;
-        object-fit: contain;
-    }
-
-    .sponsor-balloon img {
+    #intrebari-generale-cloud {
+        position: relative;
+        top: 0;
         width: 100%;
-        height: 100%;
-        object-fit: contain;
+        order: -1; /* Put it first in the flex container */
+        margin-bottom: 5vw;
     }
+
+    #small-clouds-container {
+        position: relative;
+        top: 0;
+        left: 15vw;
+        width: 70vw;
+        gap: 5vw;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    /* Position right container to continue right after left container as one element */
+    #small-clouds-container-right {
+        position: relative;
+        top: 0;
+        left: 15vw;
+        width: 70vw;
+        gap: 5vw;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+    
+    .small-cloud-container {
+        min-height: 24vw;
+        margin-bottom: 1vw;
+        position: relative;
+    }
+    
+    .small-cloud {
+        height: auto;
+        max-height: 24vw;
+    }
+
+    .small-cloud-title {
+        font-size: 3.5vw;
+        left: 5vw;
+        top: 7vw;
+    }
+
+    .small-cloud-text {
+        font-size: 3vw;
+        top: 16vw;
+        left: 5vw;
+    }
+
+    #cat-costa-cloud .small-cloud-title {
+        top: 7vw;
+    }
+
+    #cat-costa-cloud .small-cloud-text {
+        top: 14vw;
+    }
+
+    #ce-trebuie-sa-aduc-cloud .small-cloud-title {
+        top: 7vw;
+    }
+
+    #ce-trebuie-sa-aduc-cloud .small-cloud-text {
+        top: 14vw;
+    }
+
+    #ce-evenimente-ati-mai-organizat-cloud .small-cloud-title {
+        top: 7vw;
+        font-size: 3.2vw;
+    }
+
+    #ce-evenimente-ati-mai-organizat-cloud .small-cloud-text {
+        top: 16vw;
+        font-size: 2.5vw;
+    }
+
+    #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-title {
+        top: 7vw;
+        left: 5vw;
+        font-size: 3.2vw;
+    }
+
+    #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-text {
+        top: 16vw;
+        font-size: 2.5vw;
+    }
+
+    #ce-pot-crea-la-starship-cloud .small-cloud-title {
+        top: 8vw;
+    }
+
+    #ce-pot-crea-la-starship-cloud .small-cloud-text {
+        top: 18vw;
+    }
+    
+    #mai-am-si-alte-intrebari-cloud .small-cloud-title {
+        top: 8vw;
+        font-size: 3.5vw;
+    }
+
+    #mai-am-si-alte-intrebari-cloud .small-cloud-text {
+        top: 16vw;
+        font-size: 3vw;
+    }
+
 }
 
 /* Schedule Modal Styles */
@@ -1387,52 +1397,3 @@ html {
     }
 }
 
-/* Mobile Footer Styles */
-@media (max-width: 700px) {
-    #main-footer {
-        top: 790vw;
-        padding: 40px 15px 40px;
-        background: #4897ff;
-        min-height: 40vw;
-    }
-
-    .footer-content {
-        gap: 25px;
-    }
-
-    .footer-title {
-        font-size: 5.5vw;
-        margin: 0 0 15px 0;
-    }
-
-    .footer-email {
-        font-size: 4vw;
-        padding: 12px 25px;
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        gap: 10px;
-    }
-
-    .footer-email:hover {
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    }
-
-    .email-icon {
-        font-size: 4.5vw;
-    }
-
-    .footer-divider {
-        height: 3px;
-        width: 70%;
-    }
-
-    .footer-love {
-        font-size: 3.5vw;
-    }
-
-    .footer-emoji {
-        font-size: 4vw;
-        letter-spacing: 10px;
-        margin: 12px 0 0 0;
-    }
-}
