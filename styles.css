@@ -61,7 +61,7 @@ html {
     position: relative;
 
     overflow-x: hidden;
-    min-height: 1000vh; /* Ensure footer is visible - footer ends around 690vw */
+    min-height: 1000vh; /* Ensure footer is visible - footer ends around 850vw */
 }
 
 #logo {
@@ -336,7 +336,7 @@ html {
 
 #time {
     position: absolute;
-    top: 315vw;
+    top: 300vw;
     left: 0;
     width: 100%;
     z-index: 1; /* Above the background image */;
@@ -759,12 +759,12 @@ html {
                 #000048 400vw,
                 #1c37c3 440vw,
                 #4897ff 540vw,
-                #4897ff 600vw
+                #4897ff 800vw
             );
         background-repeat: no-repeat, no-repeat;
-        background-size: 100% 650vw, 100% 650vw;
+        background-size: 100% 800vw, 100% 800vw;
         background-position: top center, top left;
-        min-height: 650vw;
+        min-height: 800vw;
     }
 
     /* Astronaut */
@@ -779,21 +779,26 @@ html {
 
     /* Call to Action */
     #call-to-action-section {
-        top: 50vw;
+        top: 60vw;
         left: 5vw;
         width: 90vw;
-        max-height: 30vw;
+        max-height: none;
+        min-height: auto;
         border: 4px solid #d7e2ff;
         box-shadow: inset 0 0 0 4px #011a5e;
+        padding: 20px;
     }
 
     #call-to-action-section h1 {
-        font-size: 6vw;
+        font-size: 5.5vw;
+        margin-bottom: 2vw;
     }
 
     .call-to-action-button {
-        font-size: 5.5vw;
-        padding: 4vw 4vw;
+        font-size: 4.5vw;
+        padding: 3vw 6vw;
+        margin-top: 0.5vh;
+        white-space: nowrap;
     }
 
     /* Ce este Starship section */
@@ -843,7 +848,7 @@ html {
 
     /* Time */
     #time {
-        top: 350vw;
+        top: 335vw;
     }
 
     #program-button > div {
@@ -896,15 +901,16 @@ html {
         top: 0;
         width: 100%;
         order: -1; /* Put it first in the flex container */
-        margin-bottom: 5vw;
+        margin-bottom: 3vw;
     }
 
     #small-clouds-container {
         position: relative;
         top: 0;
-        left: 15vw;
-        width: 70vw;
-        gap: 5vw;
+        left: 50%;
+        transform: translateX(-55%);
+        width: 85vw;
+        gap: 3vw;
         z-index: 2;
         display: flex;
         flex-direction: column;
@@ -915,9 +921,10 @@ html {
     #small-clouds-container-right {
         position: relative;
         top: 0;
-        left: 15vw;
-        width: 70vw;
-        gap: 5vw;
+        left: 50%;
+        transform: translateX(-55%);
+        width: 85vw;
+        gap: 3vw;
         z-index: 2;
         display: flex;
         flex-direction: column;
@@ -925,81 +932,113 @@ html {
     }
     
     .small-cloud-container {
-        min-height: 24vw;
-        margin-bottom: 1vw;
+        min-height: 18vw;
+        margin-bottom: 0.5vw;
         position: relative;
     }
     
     .small-cloud {
         height: auto;
-        max-height: 24vw;
+        max-height: 18vw;
     }
 
     .small-cloud-title {
         font-size: 3.5vw;
-        left: 5vw;
-        top: 7vw;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 2vw;
+        width: 75vw;
+        text-align: center;
     }
 
     .small-cloud-text {
         font-size: 3vw;
-        top: 16vw;
-        left: 5vw;
+        top: 6.5vw;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75vw;
+        text-align: center;
     }
 
     #cat-costa-cloud .small-cloud-title {
-        top: 7vw;
+        top: 2vw;
     }
 
     #cat-costa-cloud .small-cloud-text {
-        top: 14vw;
+        top: 6vw;
     }
 
     #ce-trebuie-sa-aduc-cloud .small-cloud-title {
-        top: 7vw;
+        top: 2vw;
     }
 
     #ce-trebuie-sa-aduc-cloud .small-cloud-text {
-        top: 14vw;
+        top: 6vw;
     }
 
     #ce-evenimente-ati-mai-organizat-cloud .small-cloud-title {
-        top: 7vw;
+        top: 2vw;
         font-size: 3.2vw;
     }
 
     #ce-evenimente-ati-mai-organizat-cloud .small-cloud-text {
-        top: 16vw;
-        font-size: 2.5vw;
+        top: 6.5vw;
+        font-size: 2.8vw;
     }
 
     #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-title {
-        top: 7vw;
-        left: 5vw;
+        top: 2vw;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 3.2vw;
     }
 
     #are-rost-sa-vin-daca-nu-stiu-programare-cloud .small-cloud-text {
-        top: 16vw;
-        font-size: 2.5vw;
+        top: 6.5vw;
+        font-size: 2.8vw;
     }
 
     #ce-pot-crea-la-starship-cloud .small-cloud-title {
-        top: 8vw;
+        top: 2.5vw;
     }
 
     #ce-pot-crea-la-starship-cloud .small-cloud-text {
-        top: 18vw;
+        top: 7vw;
     }
     
     #mai-am-si-alte-intrebari-cloud .small-cloud-title {
-        top: 8vw;
+        top: 2.5vw;
         font-size: 3.5vw;
     }
 
     #mai-am-si-alte-intrebari-cloud .small-cloud-text {
-        top: 16vw;
+        top: 6.5vw;
         font-size: 3vw;
+    }
+
+    /* Sponsor Section Mobile */
+    #sponsor-section {
+        top: 620vw;
+    }
+
+    #sponsor-section h1 {
+        font-size: 5.5vw;
+        margin: 0 0 0.8em 0;
+    }
+
+    .sponsor-row {
+        gap: 8vw;
+        margin-bottom: 5vw;
+    }
+
+    .sponsor-balloon {
+        width: 25vw;
+        height: auto;
+    }
+
+    .sponsor-balloon img {
+        width: 100%;
+        height: auto;
     }
 
 }
@@ -1276,7 +1315,7 @@ html {
     left: 0;
     width: 100%;
     padding: 60px 20px 60px;
-    background: #4b87f7;
+    background: none;
     z-index: 10;
     box-sizing: border-box;
 }
@@ -1394,6 +1433,34 @@ html {
     }
     50% {
         transform: translateY(-8px);
+    }
+}
+
+/* Mobile Footer Styles */
+@media (max-width: 700px) {
+    #main-footer {
+        top: 800vw;
+        background: none;
+    }
+
+    .footer-title {
+        font-size: 5.5vw;
+    }
+
+    .footer-email {
+        font-size: 4vw;
+    }
+
+    .email-icon {
+        font-size: 4.5vw;
+    }
+
+    .footer-love {
+        font-size: 3.5vw;
+    }
+
+    .footer-emoji {
+        font-size: 4vw;
     }
 }
 

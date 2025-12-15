@@ -161,8 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 { scrollPosition: 150, left: '60vw', top: '230vw' },
                 { scrollPosition: 200, left: '30vw', top: '325vw' },
-                { scrollPosition: 280, left: '0vw', top: '410vw' },
-                { scrollPosition: 360, left: '120vw', top: '425vw' }
+                { scrollPosition: 280, left: '0vw', top: '410vw' }
             ];
 
             if (windowWidth <= 700) return mobile;
