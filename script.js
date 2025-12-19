@@ -153,6 +153,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 { scrollPosition: 1080, left: '84vw', top: '376vw' },
             ];
 
+            // 700px and below (mobile): start from the "i" in Starship like desktop
+            const mobile = [
+                { scrollPosition: 0, left: '65vw', top: '15vw' },
+                { scrollPosition: 50, left: '1vw', top: '111vw' },
+                { scrollPosition: 100, left: '2vw', top: '180vw' },
+
+                { scrollPosition: 150, left: '60vw', top: '230vw' },
+                { scrollPosition: 200, left: '30vw', top: '325vw' },
+                { scrollPosition: 280, left: '0vw', top: '410vw' }
+            ];
+
+            if (windowWidth <= 700) return mobile;
             if (windowWidth <= 780) return upTo780;
             if (windowWidth <= 830) return upTo830;
             if (windowWidth <= 900) return upTo900;
